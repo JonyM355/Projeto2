@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,7 +14,8 @@ namespace MealPlanner.Model
 
         public int CompareTo(IRecipe other)
         {
-            return Name.CompareTo(other.Name);
+            IngredientsNeeded.Sort();
+            return this.Name.CompareTo(other.Name);
         }
     }
 }
